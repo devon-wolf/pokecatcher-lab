@@ -1,5 +1,5 @@
 import { getStats, findByUnderscoreID } from '../data-utils.js';
-import pokemon from '../data/data.js';
+import pokeData from '../data/data.js';
 
 const tableBody = document.getElementById('table-body');
 // const tableFooter = document.getElementById('table-footer');
@@ -7,7 +7,7 @@ const tableBody = document.getElementById('table-body');
 export function generateTableRows() {
     const statsArray = getStats();
     for (let item of statsArray) {
-        const pokeObject = findByUnderscoreID(item.id, pokemon);
+        const pokeObject = findByUnderscoreID(item.id, pokeData);
 		
         const tr = document.createElement('tr');
         const tdPoke = document.createElement('td');

@@ -49,12 +49,9 @@ export function addSeen(id) {
 		
     if (pokemon) {
         pokemon.seen++;
-        console.log(`${pokeObj.pokemon} incremented`);
-
     }
     else {
         statsArray.push({ id: id, name: pokeObj.pokemon, seen: 1, caught: 0 });
-        console.log(`${pokeObj.pokemon} added to array`);
     }
     setStats(statsArray);
 }
