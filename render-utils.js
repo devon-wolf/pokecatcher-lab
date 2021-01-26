@@ -1,6 +1,9 @@
 import { addCaught, addSeen } from './data-utils.js';
 import pokemon from './data/data.js';
 
+const displayDiv = document.getElementById('pokemon-div');
+let rounds = 0;
+
 function getRandomPokemon() {
     const randomIndex = Math.floor(Math.random() * pokemon.length);
     return pokemon[randomIndex];
@@ -30,8 +33,8 @@ function getPokeElements() {
         image.value = pokemon._id;
         image.alt = pokemon.pokemon;
         image.addEventListener('click', () => {
-            console.log(`Someone clicked ${pokemon.pokemon}`);
             addCaught(image.value);
+            clearAndFillElements(displayDiv);
         });
         pokeArray.push(image);
     }
@@ -40,9 +43,20 @@ function getPokeElements() {
 
 export function renderPokeElements() {
     const pokeArray = getPokeElements();
-    const displayDiv = document.getElementById('pokemon-div');
+    
     for (let image of pokeArray) {
         addSeen(image.value);
         displayDiv.append(image);
+    }
+}
+
+function clearAndFillElements(element) {
+    rounds++;
+    element.textContent = '';
+    if (rounds >= 10) {
+        window.location = './results';
+    }
+    else {
+        renderPokeElements();
     }
 }
