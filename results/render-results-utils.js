@@ -15,6 +15,7 @@ export function generateTableRows() {
         const tdSeen = document.createElement('td');
 
         tdPoke.textContent = pokeObject.pokemon;
+        tdPoke.classList.add('pokename');
         tdCaught.textContent = item.caught;
         tdSeen.textContent = item.seen;
 

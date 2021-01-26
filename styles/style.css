@@ -10,5 +10,11 @@ body, html {
 }
 
 body {
-	background-color: blueviolet;
+	background-color: cadetblue;
+	font-family: monospace;
+	font-size: 1.5rem;
+}
+
+header {
+	text-align: center;
 }
