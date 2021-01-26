@@ -1,4 +1,4 @@
-import { addSeen } from './data-utils.js';
+import { addCaught, addSeen } from './data-utils.js';
 import pokemon from './data/data.js';
 
 function getRandomPokemon() {
@@ -30,7 +30,8 @@ function getPokeElements() {
         image.value = pokemon._id;
         image.alt = pokemon.pokemon;
         image.addEventListener('click', () => {
-        	console.log(`Someone clicked ${pokemon.pokemon}`);
+            console.log(`Someone clicked ${pokemon.pokemon}`);
+            addCaught(image.value);
         });
         pokeArray.push(image);
     }
