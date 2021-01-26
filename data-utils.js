@@ -1,5 +1,3 @@
-// import pokemon from './data/data.js';
-
 const POKESTATS = 'POKESTATS';
 const emptyStats = [];
 
@@ -8,6 +6,14 @@ export function findByID(id, array) {
         if (item.id === id) return item;
     }
 }
+
+export function findByUnderscoreID(id, array) {
+    for (let item of array) {
+        if (item._id === id) return item;
+    }
+}
+
+// functions for interacting with localStorage, pulled almost directly from the shopping cart API
 
 export function getOrSeed(key, seedData) {
     const stringyData = localStorage.getItem(key);
@@ -20,8 +26,6 @@ export function getOrSeed(key, seedData) {
         return seedData;
     }
 }
-
-// functions for interacting with localStorage, pulled almost directly from the shopping cart API
 
 export function getStats() {
     return getOrSeed(POKESTATS, emptyStats);
