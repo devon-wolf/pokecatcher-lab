@@ -1,3 +1,5 @@
+import pokeData from './data/data.js';
+
 const POKESTATS = 'POKESTATS';
 const emptyStats = [];
 
@@ -42,12 +44,17 @@ export function clearStats() {
 export function addSeen(id) {
     const statsArray = getStats();
     const pokemon = findByID(id, statsArray);
+    const pokeObj = findByUnderscoreID(id, pokeData);
+
 		
     if (pokemon) {
         pokemon.seen++;
+        console.log(`${pokeObj.pokemon} incremented`);
+
     }
     else {
-        statsArray.push({ id: id, seen: 1, caught: 0 });
+        statsArray.push({ id: id, name: pokeObj.pokemon, seen: 1, caught: 0 });
+        console.log(`${pokeObj.pokemon} added to array`);
     }
     setStats(statsArray);
 }
@@ -58,8 +65,3 @@ export function addCaught(id) {
     pokemon.caught++;
     setStats(statsArray);
 }
-
-// not sure if I ever need to actually parse this data, but have the function here just in case?
-// export function parsePokeData() {
-//     return JSON.parse(pokemon);
-// }
