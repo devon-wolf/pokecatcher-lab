@@ -1,6 +1,7 @@
 import pokeData from './data/data.js';
 
 const POKESTATS = 'POKESTATS';
+const POKESESSIONS = 'POKESESSIONS';
 const emptyStats = [];
 
 export function findByID(id, array) {
@@ -61,4 +62,14 @@ export function addCaught(id) {
     const pokemon = findByID(id, statsArray);
     pokemon.caught++;
     setStats(statsArray);
+}
+
+export function setAndUpdateAllTime(statsArray) {
+    const allTimeStats = getOrSeed(POKESESSIONS, emptyStats);
+    allTimeStats.push(statsArray);
+    localStorage.setItem(POKESESSIONS, JSON.stringify(allTimeStats));
+}
+
+export function clearAllTime() {
+    localStorage.setItem(POKESESSIONS, JSON.stringify(emptyStats));
 }
