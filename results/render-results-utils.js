@@ -47,22 +47,21 @@ export function generateAllTimeTableRows() {
             filteredArray.push(poke);
         }
     }
-    console.log(filteredArray);
 
-    // for (let item of statsArray) {
-    //     const pokeObject = findByUnderscoreID(item.id, pokeData);
+    for (let item of filteredArray) {
+        const pokeObject = findByUnderscoreID(item.id, pokeData);
         
-    //     const tr = document.createElement('tr');
-    //     const tdPoke = document.createElement('td');
-    //     const tdCaught = document.createElement('td');
-    //     const tdSeen = document.createElement('td');
+        const tr = document.createElement('tr');
+        const tdPoke = document.createElement('td');
+        const tdCaught = document.createElement('td');
+        const tdSeen = document.createElement('td');
 
-    //     tdPoke.textContent = pokeObject.pokemon;
-    //     tdPoke.classList.add('pokename');
-    //     tdCaught.textContent = item.caught;
-    //     tdSeen.textContent = item.seen;
+        tdPoke.textContent = pokeObject.pokemon;
+        tdPoke.classList.add('pokename');
+        tdCaught.textContent = item.caught;
+        tdSeen.textContent = item.seen;
 
-    //     tr.append(tdPoke, tdCaught, tdSeen);
-    //     allTimeTableBody.append(tr);
-    // }
+        tr.append(tdPoke, tdCaught, tdSeen);
+        allTimeTableBody.append(tr);
+    }
 }
