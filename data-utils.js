@@ -64,10 +64,19 @@ export function addCaught(id) {
     setStats(statsArray);
 }
 
-export function setAndUpdateAllTime(statsArray) {
-    const allTimeStats = getOrSeed(POKESESSIONS, emptyStats);
+export function getAllTime() {
+    return getOrSeed(POKESESSIONS, emptyStats);
+}
+
+export function setAllTime(statsArray) {
+    const currentStats = getAllTime();
+    currentStats.push(statsArray);
+    localStorage.setItem(POKESESSIONS, JSON.stringify(currentStats));
+}
+
+export function updateAllTime(statsArray) {
+    const allTimeStats = getAllTime();
     allTimeStats.push(statsArray);
-    localStorage.setItem(POKESESSIONS, JSON.stringify(allTimeStats));
 }
 
 export function clearAllTime() {
