@@ -33,7 +33,6 @@ function getPokeElements() {
         image.value = pokemon._id;
         image.alt = pokemon.pokemon;
         image.addEventListener('click', () => {
-            console.log(image.value);
             addCaught(image.value);
             clearAndFillElements(displayDiv);
         });
