@@ -5,3 +5,7 @@ export function makePropertyArray(arrayOfObjects, propertyString) {
     }
     return propertyArray;
 }
+
+export function getFrequencyAsPercent(eventCount, totalCount) {
+    return (eventCount / totalCount) * 100;
+}

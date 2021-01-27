@@ -1,5 +1,6 @@
 import {
-    makePropertyArray
+    makePropertyArray,
+    getFrequencyAsPercent
 } from '../results/munge-utils.js';
 
 const test = QUnit.test;
@@ -47,4 +48,11 @@ test('It should take in an array of objects and return an array of the indicated
     expect.deepEqual(actual2, expected2);
     expect.deepEqual(actual3, expected3);
 
+});
+
+// test getFrequency
+test('It should return 25 when given 10 and 40', (expect) => {
+    const expected = 25;
+    const actual = getFrequencyAsPercent(10, 40);
+    expect.equal(actual, expected);
 });
