@@ -17,25 +17,56 @@
     
     <main>
         <section class="results-display">
-            <table class="pokemon-table">
-                <thead>
-                    <tr>
-                        <th>Pokemon</th>
-                        <th>Caught</th>
-                        <th>Seen</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
+            <div class="table-div">
+                <label for="this-session-table">This Session</label>
+                <table class="pokemon-table" id="this-session-table">
+                    <thead>
+                        <tr>
+                            <th>Pokemon</th>
+                            <th>Caught</th>
+                            <th>Seen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
 
-                </tbody>
-                <tfoot id="table-footer"></tfoot>
-            </table>
-            <button id="reset-button">Clear data and play again?</button>
+                    </tbody>
+                    <tfoot id="table-footer"></tfoot>
+                </table>
+
+                <label for="all-time-table">All Sessions</label>
+                <table class="all-time-table" id="all-time-table">
+                    <thead>
+                        <tr>
+                            <th>Pokemon</th>
+                            <th>Caught</th>
+                            <th>Seen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all-time-body">
+
+                    </tbody>
+                    <tfoot id="all-time-footer"></tfoot>
+                </table>
+            </div>
+            <div class="chart-div">
+                <label for="myChart1">Pokemon: Caught and Seen</label>
+                <canvas id="myChart1"></canvas>
+                
+                <label for="myChart2">Which Pokemon Could You Not Resist?</label>
+                <canvas id="myChart2"></canvas>
+
+                <label for="myChart3">How Heavy Are the Pokemon You're Carrying?</label>
+                <canvas id="myChart3"></canvas>
+            </div>
         </section>
     </main>
     
-    <footer></footer>
-
+    <footer>
+            <button id="reset-button">Clear session data and play again?</button>
+            <button id="clear-all-stats">Clear all stored data?</button>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script type="module" src="results.js"></script>
 </body>
 

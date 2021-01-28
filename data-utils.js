@@ -1,4 +1,7 @@
+import pokeData from './data/data.js';
+
 const POKESTATS = 'POKESTATS';
+const POKESESSIONS = 'POKESESSIONS';
 const emptyStats = [];
 
 export function findByID(id, array) {
@@ -42,12 +45,14 @@ export function clearStats() {
 export function addSeen(id) {
     const statsArray = getStats();
     const pokemon = findByID(id, statsArray);
+    const pokeObj = findByUnderscoreID(id, pokeData);
+
 		
     if (pokemon) {
         pokemon.seen++;
     }
     else {
-        statsArray.push({ id: id, seen: 1, caught: 0 });
+        statsArray.push({ id: id, name: pokeObj.pokemon, seen: 1, caught: 0 });
     }
     setStats(statsArray);
 }
@@ -59,7 +64,21 @@ export function addCaught(id) {
     setStats(statsArray);
 }
 
-// not sure if I ever need to actually parse this data, but have the function here just in case?
-// export function parsePokeData() {
-//     return JSON.parse(pokemon);
-// }
+export function getAllTime() {
+    return getOrSeed(POKESESSIONS, emptyStats);
+}
+
+export function setAllTime(statsArray) {
+    const currentStats = getAllTime();
+    currentStats.push(statsArray);
+    localStorage.setItem(POKESESSIONS, JSON.stringify(currentStats));
+}
+
+export function updateAllTime(statsArray) {
+    const allTimeStats = getAllTime();
+    allTimeStats.push(statsArray);
+}
+
+export function clearAllTime() {
+    localStorage.setItem(POKESESSIONS, JSON.stringify(emptyStats));
+}
