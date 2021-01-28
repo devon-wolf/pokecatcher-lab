@@ -1,5 +1,3 @@
-// import functions and grab DOM elements
+import { renderPokeElements } from './render-utils.js';
 
-// initialize state
-
-// set event listeners to update state and DOM
+renderPokeElements();

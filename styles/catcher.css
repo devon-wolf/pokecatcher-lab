@@ -1,0 +1,20 @@
+.poke-img {
+	height: 200px;
+	width: 200px;
+	margin: 1rem;
+}
+
+.poke-img:hover {
+	cursor: pointer;
+	transform: scale(1.25);
+}
+
+.poke-img:active {
+	transform: scale(.75);
+}
+
+.poke-display {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
